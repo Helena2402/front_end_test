@@ -12,6 +12,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily:{
+        'Roboto' : ['Roboto Flex', 'system-ui']
+
+      },
     },
   },
   plugins: [],
