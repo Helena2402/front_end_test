@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        buttonBlue : "#4c25d4",
+        buttonPurple : "#a013a7",
       },
       fontFamily:{
         'Roboto' : ['Roboto Flex', 'system-ui']

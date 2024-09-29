@@ -33,6 +33,19 @@ body {
   .body{
     @apply font-Roboto font-medium
   }
+
+  .customButton{
+    @apply py-2 px-4 rounded-full font-bold
+  }
+
+  .customPrimaryButton{
+    @apply bg-buttonBlue hover:bg-gradient-to-b from-buttonPurple to-buttonBlue text-white 
+  }
+
+  .customSecondaryButton{
+    @apply bg-transparent border border-buttonBlue text-buttonBlue hover:border-buttonPurple hover:text-buttonPurple
+  }
+
 }
 
 @layer utilities {

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <p className="body">Pocetak :) You got this!!!</p>
+      <button className="customButton customPrimaryButton">Pocetak :) You got this!!!</button>
       
     </div>
   );
