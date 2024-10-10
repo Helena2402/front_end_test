@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Header from "./components/Header";
-import WhoToFollow from "./components/WhoToFollow";
-import SuggestedPosts from "./components/SuggestedPosts";
-import PostsWithLoading from "./components/Loading";
+import PostsWithLoading from "./components/PostsWithLoading";
+import FollowWithLoading from "./components/FollowWithLoading";
 
 
 export default function Home() {
@@ -12,6 +11,8 @@ export default function Home() {
       
         <div className="rounded-lg p-6 px-4 md:px-10 lg:px-20 xl:px-40">
           <PostsWithLoading />
+
+          <FollowWithLoading />
           
         </div>
       

@@ -63,8 +63,6 @@ export default async function SuggestedPosts() {
   return (
     <div>
       <span className="heading text-3xl">Suggested posts</span>
-
-      {/* Display a loading image while posts are being fetched */}
       {isError ? (
         <ErrorCard title={errorProps.title} description={errorProps.description} />
         

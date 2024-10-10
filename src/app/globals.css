@@ -43,7 +43,24 @@ body {
   }
 
   .customSecondaryButton{
-    @apply bg-transparent border border-buttonBlue text-buttonBlue hover:border-buttonPurple hover:text-buttonPurple
+    @apply bg-transparent  border-buttonBlue text-buttonBlue hover:border-buttonPurple hover:text-buttonPurple;
+
+    display: flex;
+    padding: 8px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    flex-direction: column;
+    border-radius: 100px;
+    border: 1px solid #4426D9;
+    color:  #4426D9;
+    text-align: center;
+    font-family: "Roboto Flex";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 
   .sectionHeader{
