@@ -47,7 +47,44 @@ body {
   }
 
   .sectionHeader{
-    @apply bg-red-600
+    @apply bg-red-60
+  }
+
+  .errorCard{
+    display: flex;
+    width: 190px;
+    padding: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-radius: var(--space-16, 16px);
+    border: 1px solid var(--Content-border, #E4E7E8);
+    background: var(--Content-surface, #FFF);
+  }
+  .errorPicture{
+    width: 50px;
+    height: 50px;
+  }
+  .errorTitle{
+    align-self: stretch;
+    color: var(--Text-text-primary, #141C24);
+    text-align: center;
+    /* Desktop/H3 */
+    font-family: "Roboto Flex";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%; /* 18px */
+  }
+  .errorDescription{
+    align-self: stretch;
+    color: var(--Text-text-secondary, #5C6970);
+    text-align: center;
+    font-family: "Roboto Flex";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 
 }

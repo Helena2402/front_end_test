@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Header from "./components/Header";
+import WhoToFollow from "./components/WhoToFollow";
 import SuggestedPosts from "./components/SuggestedPosts";
+import PostsWithLoading from "./components/Loading";
+
 
 export default function Home() {
   return (
@@ -8,7 +11,8 @@ export default function Home() {
       <Header name={"Feed"}/>
       
         <div className="rounded-lg p-6 px-4 md:px-10 lg:px-20 xl:px-40">
-          <SuggestedPosts />
+          <PostsWithLoading />
+          
         </div>
       
     </div>
