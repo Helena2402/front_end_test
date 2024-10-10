@@ -1,6 +1,5 @@
 import ErrorCard from "./ErrorCard";
 import PostCard from "./PostCard";
-import Error from "next/error";
 
 interface iPostCard{
   name : string;

@@ -17,9 +17,11 @@ export default function PostsWithLoading() {
 
   return (
     <div>
+      
       {isLoading ? (
+        
         <div>
-            <span className="heading text-3xl">Suggested posts</span>
+          <span className="heading text-3xl">Suggested posts</span>
             <div className="border shadow-sm mx-auto my-5 bg-white rounded-lg">
                 <img className="object-cover mx-auto" src="/images/loading.gif"/>
             </div>
