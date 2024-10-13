@@ -1,6 +1,4 @@
-'use client'
 
-import Link from "next/link";
 import Header from "./components/Header";
 import PostsWithLoading from "./components/PostsWithLoading";
 import FollowWithLoading from "./components/FollowWithLoading";
