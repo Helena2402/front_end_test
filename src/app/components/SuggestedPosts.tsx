@@ -35,7 +35,6 @@ export default async function SuggestedPosts() {
         const fetchedUser = await fetch(`https://dummyjson.com/users/filter?key=id&value=${post.userId}`);
         const userData = await fetchedUser.json();
         const user = userData.users[0];
-        console.log(post.userId);
         const newPost: iPostCard = {
           userId: post.userId,
           name: user.firstName + " " + user.lastName,
