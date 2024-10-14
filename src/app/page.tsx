@@ -1,7 +1,5 @@
 
 import Header from "./components/Header";
-import PostsWithLoading from "./components/PostsWithLoading";
-import FollowWithLoading from "./components/FollowWithLoading";
 import Recent from "./components/Recent";
 import SuggestedPosts from "./components/SuggestedPosts";
 import WhoToFollow from "./components/WhoToFollow";

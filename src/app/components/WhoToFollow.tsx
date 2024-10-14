@@ -8,6 +8,7 @@ interface iErrorProps{
 }
 
 interface iFollow{
+  id: string;
   name : string;
   username : string;
 }
@@ -19,28 +20,37 @@ export default async function WhoToFollow() {
   var isError : boolean = false;
   var errorProps : iErrorProps = {title : "-", description : "-"}
 
-  try{
+  try {
+    let posts: any[] = [];
+    let page = 1;
+    let total = 0;
 
-    //dohvati postove
-    const response = await fetch('https://dummyjson.com/posts');
-    const postData = await response.json();
-    const posts = postData.posts;
-  
-    // Prebrojavanje koliko koji user ima postova
+    // Dohvaćanje svih postova (problem s paganation, nije radilo prije)
+    do {
+      const response = await fetch(`https://dummyjson.com/posts?limit=100&skip=${(page - 1) * 100}`);
+      const postData = await response.json();
+      posts = [...posts, ...postData.posts];
+      total = postData.total;
+      page++;
+    } while (posts.length < total);
+
+    // Prebrojavanje koliko user ima postova
     const postCountMap: { [userId: number]: number } = {};
     posts.forEach((post: { userId: number }) => {
       postCountMap[post.userId] = (postCountMap[post.userId] || 0) + 1;
     });
 
-    //Sortiranje i pronalazenje top 4 usera
+    // Sortiranje i top 4
     const sortedUsers = Object.entries(postCountMap)
       .sort(([, countA], [, countB]) => countB - countA)
       .slice(0, 4);
 
+    // Dohvaćanje user podataka
     const userPromises = sortedUsers.map(async ([userId]) => {
       const response = await fetch(`https://dummyjson.com/users/${userId}?select=firstName,lastName,username`);
       const userData = await response.json();
       return {
+        id: userId,
         name: `${userData.firstName} ${userData.lastName}`,
         username: userData.username,
       };
@@ -64,11 +74,12 @@ export default async function WhoToFollow() {
         ) : (
         <div className="grid md:grid-cols-2">
           {users.length > 0 &&
-            users.map((post, index) => (
+            users.map((user, index) => (
               <UserCardSmall
                 key={index}
-                name={post.name}
-                username={post.username}
+                userId = {user.id}
+                name={user.name}
+                username={user.username}
                 />
               ))
           }

@@ -17,7 +17,7 @@ interface iErrorProps{
   description: string
 }
 
-export default async function SuggestedPosts() {
+export default async function RecentProfile(props : any) {
 
   var postList : iPostCard[] = []
 
@@ -27,15 +27,15 @@ export default async function SuggestedPosts() {
 
   try 
   {
-    const fetchedPosts = await fetch('https://dummyjson.com/posts?sortBy=likes&order=asc&limit=2');
+    const fetchedPosts = await fetch(`https://dummyjson.com/posts/user/${props.userId}`);
     const postData = await fetchedPosts.json();
     
     const postPromises = postData.posts.map(async (post: any) => 
       {
-        const fetchedUser = await fetch(`https://dummyjson.com/users/filter?key=id&value=${post.userId}`);
+        const fetchedUser = await fetch(`https://dummyjson.com/users/filter?key=id&value=${props.userId}`);
         const userData = await fetchedUser.json();
         const user = userData.users[0];
-        console.log(post.userId);
+        
         const newPost: iPostCard = {
           userId: post.userId,
           name: user.firstName + " " + user.lastName,
@@ -51,6 +51,7 @@ export default async function SuggestedPosts() {
       });
       
       postList = await Promise.all(postPromises);
+
     } catch (error:any) {
       console.error("Error fetching posts or users:", error);
       isError = true; 
@@ -62,15 +63,14 @@ export default async function SuggestedPosts() {
   
 
   return (
-    <div>
-      <span className="heading text-3xl">Suggested posts</span>
+    <div className="mt-8">
+      <span className="heading text-3xl">Recent</span>
       {isError ? (
         <ErrorCard title={errorProps.title} description={errorProps.description} />
         
       ) : (
         postList.length > 0 && postList.map((post, index) => (
         <PostCard
-          userId = {post.userId}
           key={index}
           name={post.name}
           username={post.username}

@@ -1,6 +1,7 @@
 import ErrorCard from "./ErrorCard";
 
 interface iPost{
+  userId : string;
   name : string;
   username : string;
   body : string;
@@ -36,6 +37,7 @@ export async function GetPosts(page: number) {
       const user = userData.users[0];
       
       const newPost: iPost = {
+        userId : post.userId,
         name: user.firstName + " " + user.lastName,
         username: user.username,
         body: post.body,

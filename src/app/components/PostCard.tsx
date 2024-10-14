@@ -1,5 +1,6 @@
 import React from "react";
 import { ReadMore } from "./ReadMore";
+import Link from "next/link";
 
 
 export default function PostCard(props : any) {
@@ -8,9 +9,9 @@ export default function PostCard(props : any) {
         <div className="border shadow-sm mx-auto my-5 bg-white rounded-lg">
             {/* Post header */}
             <div className="flex items-center px-4 py-3">
-                <img className="h-12 w-12 rounded-full object-cover" src="/images/avatar.png"/>
+            <Link href={`/${props.userId}`}><img className="h-12 w-12 rounded-full object-cover" src="/images/avatar.png"/></Link>
                 <div className="ml-3">
-                    <h3 className="text-gray-900 font-semibold">{props.name}</h3>
+                    <Link href={`/${props.userId}`}><h3 className="text-gray-900 font-semibold">{props.name}</h3></Link>
                     <span className="text-gray-500 text-sm">@{props.username}</span>
                 </div>
             </div>

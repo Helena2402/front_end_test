@@ -51,7 +51,7 @@ export default function InfiniteScrollPosts() {
       {
         root: null, // observe within the viewport
         rootMargin: "0px",
-        threshold: 0.5, // Trigger when 50% of the loader is visible
+        threshold: 1.0, // Trigger when 100% of the loader is visible
       }
     );
 
@@ -82,6 +82,7 @@ export default function InfiniteScrollPosts() {
         posts.map((post, index) => (
           <PostCard
             key={index}
+            userId={post.userId}
             name={post.name}
             username={post.username}
             body={post.body}

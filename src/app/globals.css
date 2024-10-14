@@ -39,7 +39,23 @@ body {
   }
 
   .customPrimaryButton{
-    @apply bg-buttonBlue hover:bg-gradient-to-b from-buttonPurple to-buttonBlue text-white 
+    @apply bg-buttonBlue hover:bg-gradient-to-b from-buttonPurple to-buttonBlue text-white ;
+    display: flex;
+    padding: 8px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    flex-direction: column;
+    border-radius: 100px;
+    border: 1px solid #4426D9;
+    color:  white;
+    text-align: center;
+    font-family: "Roboto Flex";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 
   .customSecondaryButton{
@@ -64,7 +80,7 @@ body {
   }
 
   .sectionHeader{
-    @apply bg-red-60
+    @apply bg-red-60;
   }
 
   .errorCard{
@@ -103,6 +119,45 @@ body {
     font-weight: 500;
     line-height: normal;
   }
+
+  .profileCard{
+    display: flex;
+    padding-top: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0px 1px var(--Blur-blur-2, 3px) 0px rgba(26, 26, 26, 0.08);
+  } 
+
+  .profileCard_gradient{
+    height: 64px;
+    align-self: stretch;
+    background: var(--Gradient-Soft-Sunrise, linear-gradient(103deg, #ECE9FB 0.31%, #FDEDE7 82.87%));
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  .profileCard_info{
+    @apply relative z-10
+  }
+
+  .profileCard_picture{
+    @apply w-24 h-24 rounded-full object-cover border-4 border-white mt-8 lg:ml-4
+  }
+  
+  .profileCard_name{
+    @apply lg:mt-20;
+
+    font-family: "Roboto Flex";
+    font-size: 30px;
+  }
+
+  .profileCard_nopic{
+    @apply mx-auto;
+  }
+
 
 }
 
